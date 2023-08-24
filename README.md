@@ -17,7 +17,16 @@ Load right image (Oracle Database 19c for LINUX ARM (aarch64))[IMAGE Download-pa
 
 When image installed you can set up running your image using project [compose.yml](/nextjs-blog/compose.yml)
 
+## Connect to db
+Recommeded way to connect to db and manage data is use graphic db cli [Dbeaver](https://dbeaver.io)
+
+![Image to set up dbeaver](/nextjs-blog/images/dbeaver.png)
+
+
  ## Run program
 
   ```npm install``` <br>
   ```npm run```
+
+
+  
