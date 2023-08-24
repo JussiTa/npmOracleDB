@@ -6,3 +6,15 @@ services:
             - "11521:1521"
         environment:
             - ORACLE_PWD=testing12345
+    
+    web:
+        build:
+            context: ./
+            target: runner
+        volumes:
+            - .:/app
+        command: npm run dev
+        ports:
+            - "3000:3000"
+        environment:
+            NODE_ENV: development

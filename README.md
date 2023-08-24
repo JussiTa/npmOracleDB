@@ -28,5 +28,8 @@ Recommeded way to connect to db and manage data is use graphic db cli [Dbeaver](
   ```npm install``` <br>
   ```npm run dev```
 
+  ## Run all in docker
+  Here is basic setup add nextJs to docker [setup nextJs](https://geshan.com.np/blog/2023/01/nextjs-docker/) 
+
 
   
