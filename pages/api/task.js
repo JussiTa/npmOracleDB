@@ -17,7 +17,7 @@ export default function handler(req, res) {
     }
     else if(req.method ==='POST'){
       saveData(req)
-     res.status(200).json({ text:  data });
+     res.status(200).json("Succesfully inserted " +data.info+ " rows.");
     }
     else if(req.method ==='DELETE')
     {
@@ -31,7 +31,7 @@ export default function handler(req, res) {
       res.status(200).json("Succesfully updated "+data.info+ " rows.");
     }  
 
-    else{ res.status(400).json({ text:  'Emme tue kyseistä pyyyntöä' });}
+    else{ res.status(400).json({ text:  'Bad request' });}
 
   }
   const getData = (req) =>{
@@ -53,9 +53,10 @@ export default function handler(req, res) {
      const date = new Date();
      const category = req.body.CATEGORYID; 
      
-     const formattedDay =(dateFormat(date, 'dd/mm/yyyy'));
+     const formattedDay =(dateFormat(date, 'dd/mm/yyyy:HH:MM:ss'));
+     console.log(formattedDay)
      
-     const queryClause = "INSERT INTO JUSSI.task (DESCRIPTION,CREATED,CATEGORYID) VALUES('"+desc+"', TO_DATE('"+formattedDay+"', 'dd/mm/yyyy'),"+category+")";
+     const queryClause = "INSERT INTO JUSSI.task (DESCRIPTION,CREATED,CATEGORYID) VALUES('"+desc+"', TO_DATE('"+formattedDay+"', 'dd/mm/yyyy HH24:MI:SS'),"+category+")";
    
      queryExecute(queryClause);
     

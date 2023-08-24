@@ -26,7 +26,7 @@ Recommeded way to connect to db and manage data is use graphic db cli [Dbeaver](
  ## Run program
 
   ```npm install``` <br>
-  ```npm run```
+  ```npm run dev```
 
 
   
