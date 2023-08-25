@@ -5,8 +5,9 @@ import dateFormat, { masks } from "dateformat";
 
 const data = {
   rows: "",
-  info: ""
+  info: 0
 } 
+
 
 export default function handler(req, res) {
    
@@ -17,7 +18,7 @@ export default function handler(req, res) {
     }
     else if(req.method ==='POST'){
       saveData(req)
-     res.status(200).json("Succesfully inserted " +data.info+ " rows.");
+      res.status(200).json("Succesfully inserted " +data.info+ " rows.");
     }
     else if(req.method ==='DELETE')
     {
@@ -81,24 +82,22 @@ export default function handler(req, res) {
   }
 
   async function queryExecute(query) {
-    oracledb.autoCommit = true;
     let connection;
    
     try {
       // Get a non-pooled connection
+      
       connection = await oracledb.getConnection(dbConfig);
-     
-  
+      oracledb.autoCommit = true;
       console.log('Connection was successful to oracledb!');
 
-      
+    
       try {
-       let result =await connection.execute(query);
+       let result = await connection.execute(query);
        
        data.rows = result.rows;
        data.info = result.rowsAffected;
-       //return data;
-       //console.log(data.rows)
+  
       } catch (e) {
         if (e.errorNum != 942)
           console.error(e);
