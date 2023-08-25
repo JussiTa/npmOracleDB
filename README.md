@@ -21,8 +21,7 @@ Load right image (Oracle Database 19c for LINUX ARM (aarch64))[IMAGE Download-pa
 	"date" DATE, 
 	"CATEGORYID" NUMBER(*,0), 
 	 CONSTRAINT "TASK_PK" PRIMARY KEY ("ID"),
-	FOREIGN KEY("CATEGORYID") REFERENCES CATEGORY(id)
-);
+	FOREIGN KEY("CATEGORYID") REFERENCES CATEGORY(id));
 
 
 
